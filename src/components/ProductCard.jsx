@@ -6,11 +6,11 @@ function ProductCard({ product }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="group flex flex-col justify-between bg-white rounded-2xl border border-slate-200/80 p-5 shadow-sm hover:shadow-xl hover:border-purple-200 hover:-translate-y-1.5 transition-all duration-300">
+    <div className="group flex flex-col justify-between bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-5 shadow-sm hover:shadow-xl hover:border-purple-200 dark:hover:border-purple-700 hover:-translate-y-1.5 transition-all duration-300">
       <div>
-        <div className="relative h-56 w-full bg-slate-50/70 rounded-xl p-6 mb-5 flex items-center justify-center overflow-hidden">
+        <div className="relative h-56 w-full bg-slate-50/70 dark:bg-slate-800 rounded-xl p-6 mb-5 flex items-center justify-center overflow-hidden">
           {product.category && (
-            <span className="absolute top-3 left-3 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider bg-white/90 backdrop-blur-sm text-slate-600 rounded-lg shadow-sm border border-slate-100">
+            <span className="absolute top-3 left-3 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-slate-600 dark:text-slate-300 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
               {product.category}
             </span>
           )}
@@ -18,26 +18,26 @@ function ProductCard({ product }) {
           <img
             src={product.image}
             alt={product.title}
-            className="h-full w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 ease-out"
+            className="h-full w-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-110 transition-transform duration-500 ease-out"
           />
         </div>
 
         <h2
           title={product.title}
-          className="font-bold text-slate-900 text-base leading-snug line-clamp-2 min-h-[2.75rem] group-hover:text-purple-600 transition-colors"
+          className="font-bold text-slate-900 dark:text-slate-100 text-base leading-snug line-clamp-2 min-h-[2.75rem] group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
         >
           {product.title}
         </h2>
       </div>
 
-      <div className="mt-5 pt-4 border-t border-slate-100">
+      <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
         <div className="flex items-baseline justify-between mb-3.5">
-          <span className="text-xl font-extrabold text-slate-900">
+          <span className="text-xl font-extrabold text-slate-900 dark:text-white">
             ${Number(product.price).toFixed(2)}
           </span>
 
           {product.rating?.rate && (
-            <span className="flex items-center gap-1 text-xs font-semibold text-amber-500 bg-amber-50 px-2 py-0.5 rounded-md">
+            <span className="flex items-center gap-1 text-xs font-semibold text-amber-500 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 rounded-md">
               ★ {product.rating.rate}
             </span>
           )}
@@ -45,7 +45,7 @@ function ProductCard({ product }) {
 
         <button
           onClick={() => dispatch(addToCart(product))}
-          className="w-full py-3 px-4 bg-purple-600 hover:bg-purple-700 active:scale-[0.98] text-white font-semibold text-sm rounded-xl shadow-sm shadow-purple-200 hover:shadow-md hover:shadow-purple-300 flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer"
+          className="w-full py-3 px-4 bg-purple-600 hover:bg-purple-700 active:scale-[0.98] text-white font-semibold text-sm rounded-xl shadow-sm shadow-purple-200 dark:shadow-none hover:shadow-md hover:shadow-purple-300 dark:hover:shadow-none flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer"
         >
           <svg
             xmlns="http://w3.org"
